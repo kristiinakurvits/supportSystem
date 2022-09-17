@@ -28,6 +28,7 @@ public class SupportTicketService {
         return supportTicketMapper.supportTicketsToSupportTicketInfos(supportTickets);
     }
 
+
     public void updateTicketStatus(Integer id) {
 //        supportTicketRepository.findBy(id);
 //
