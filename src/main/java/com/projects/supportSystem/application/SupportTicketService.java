@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class SupportTicketService {
@@ -29,11 +30,13 @@ public class SupportTicketService {
     }
 
 
-    public void updateTicketStatus(Integer id) {
-//        supportTicketRepository.findBy(id);
-//
-//                service status muuta
-//                salvesta uuesti
-//        muudan ja
+    public void updateTicketStatus(Integer supportTicketId) {
+        Optional<SupportTicket> supportTicket = supportTicketRepository.findById(supportTicketId);
+//        SupportTicket supportTicket =
+//        supportTicket.setIsSolved(true);
+        supportTicketRepository.save(supportTicket);
     }
+
+
 }
+

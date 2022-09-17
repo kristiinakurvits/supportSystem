@@ -27,7 +27,7 @@ public class SupportTicketController {
 
     @PatchMapping("/status")
     @Operation(summary = "Update support ticket status")
-    public void updateTicketStatus(@PathVariable Integer id) {
-        supportTicketService.updateTicketStatus(id);
+    public void updateTicketStatus(@PathVariable Integer supportTicketId) {
+        supportTicketService.updateTicketStatus(supportTicketId);
     }
 }
