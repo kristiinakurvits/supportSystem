@@ -23,13 +23,16 @@ public class SupportTicketService {
         return supportTicketMapper.supportTicketToSupportTicketResponse(savedTicket);
     }
 
-    public SupportTicketRequest findTicketDetails(Integer supportTicketId) {
+    public List<SupportTicketInfo> findAllActiveTickets() {
+        List<SupportTicket> supportTickets = supportTicketRepository.findByStatus(false);
+        return supportTicketMapper.supportTicketsToSupportTicketInfos(supportTickets);
     }
 
-    public List<SupportTicketInfo> findActiveTickets(Integer supportTicketId) {
+    public void updateTicketStatus(Integer id) {
+//        supportTicketRepository.findBy(id);
+//
+//                service status muuta
+//                salvesta uuesti
+//        muudan ja
     }
-
-    public void updateTicketStatus(SupportTicketInfo request) {
-    }
-}
 }
