@@ -25,9 +25,9 @@ public class SupportTicketController {
         return supportTicketService.findAllActiveTickets();
     }
 
-    @PatchMapping("/status")
-    @Operation(summary = "Update support ticket status")
-    public void updateTicketStatus(@PathVariable Integer supportTicketId) {
-        supportTicketService.updateTicketStatus(supportTicketId);
+    @PatchMapping("/solve/{supportTicketId}")
+    @Operation(summary = "Update support ticket status to solved")
+    public void markTicketSolved(@PathVariable Integer supportTicketId) {
+        supportTicketService.markTicketSolved(supportTicketId);
     }
 }

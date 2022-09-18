@@ -1,9 +1,10 @@
 package com.projects.supportSystem.application;
 
+import com.projects.supportSystem.Validation.ValidationService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -18,7 +19,7 @@ public class SupportTicketService {
 
     public SupportTicketResponse addTicket(SupportTicketRequest request) {
         SupportTicket supportTicket = supportTicketMapper.supportTicketRequestToSupportTicket(request);
-        supportTicket.setDateAdded(LocalDate.now());
+        supportTicket.setDateAdded(LocalDateTime.now());
         supportTicket.setIsSolved(false);
         SupportTicket savedTicket = supportTicketRepository.save(supportTicket);
         return supportTicketMapper.supportTicketToSupportTicketResponse(savedTicket);
@@ -29,14 +30,14 @@ public class SupportTicketService {
         return supportTicketMapper.supportTicketsToSupportTicketInfos(supportTickets);
     }
 
-
-    public void updateTicketStatus(Integer supportTicketId) {
-        Optional<SupportTicket> supportTicket = supportTicketRepository.findById(supportTicketId);
-//        SupportTicket supportTicket =
-//        supportTicket.setIsSolved(true);
+    public void markTicketSolved(Integer supportTicketId) {
+        Optional<SupportTicket> optionalSupportTicket = supportTicketRepository.findById(supportTicketId);
+        ValidationService.validateTicketExists(optionalSupportTicket);
+        SupportTicket supportTicket = optionalSupportTicket.get();
+        supportTicket.setIsSolved(true);
         supportTicketRepository.save(supportTicket);
     }
-
-
 }
+
+
 

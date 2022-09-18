@@ -23,8 +23,8 @@ CREATE TABLE support_ticket (
     requester_e_mail varchar(255)  NOT NULL,
     title varchar(255)  NOT NULL,
     description varchar(510)  NOT NULL,
-    date_added date  NOT NULL,
-    deadline date  NOT NULL,
+    date_added timestamp  NOT NULL,
+    deadline timestamp  NOT NULL,
     is_solved boolean  NOT NULL,
     CONSTRAINT support_ticket_pk PRIMARY KEY (id)
 );

@@ -4,7 +4,7 @@ import lombok.Data;
 
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Data
 public class SupportTicketRequest implements Serializable {
@@ -15,5 +15,5 @@ public class SupportTicketRequest implements Serializable {
     private String title;
     private String description;
     @NotNull
-    private LocalDate deadline;
+    private LocalDateTime deadline;
 }

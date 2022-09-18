@@ -3,12 +3,13 @@ package com.projects.supportSystem.application;
 import lombok.Data;
 
 import javax.persistence.*;
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Data
 @Entity
 @Table(name = "support_ticket")
 public class SupportTicket {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
@@ -27,10 +28,10 @@ public class SupportTicket {
     private String description;
 
     @Column(name = "date_added", nullable = false)
-    private LocalDate dateAdded;
+    private LocalDateTime dateAdded;
 
     @Column(name = "deadline", nullable = false)
-    private LocalDate deadline;
+    private LocalDateTime deadline;
 
     @Column(name = "is_solved", nullable = false)
     private Boolean isSolved = false;
