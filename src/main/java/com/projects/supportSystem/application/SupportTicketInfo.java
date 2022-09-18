@@ -7,6 +7,7 @@ import java.time.LocalDateTime;
 
 @Data
 public class SupportTicketInfo implements Serializable {
+    private final Integer id;
     private final String requesterName;
     private final String requesterEMail;
     private final String title;
